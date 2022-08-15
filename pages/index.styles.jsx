@@ -6,8 +6,19 @@ export const Wrapper = styled.div`
 `;
 
 export const CardCard = styled.div`
-  
-  
+   @media (max-width: 767px) {
+    width: 100%;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 45%; 
+  }
+
+  @media (min-width: 1024px) {
+    width: 20%; 
+  }
+  width: 400px;
+  height: 500px;
 `;
 
 export const WrapperInput = styled.div`
@@ -75,9 +86,21 @@ export const WrapperButton = styled.div`
 `;
 
 export const WrapperCardCar = styled.div`
+@media (max-width: 767px) {
+  padding: 0 2%;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    padding: 0 2%;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 0 2%;
+  }
   display: flex;
+  justify-content: space-between;
   gap: 42px;
   flex-wrap: wrap;
   width: 100%;
-  padding: 50px;
+  padding: 0 60px;
 `;

@@ -10,6 +10,7 @@ import {
   CardImage,
   Image,
   Wrapper,
+  WrapperCar,
   WrapperCarIcon,
 } from "./card.styles";
 import { CartContext } from "../../Context";
@@ -44,7 +45,7 @@ export default function Card({
     } catch (error) {}
   };
 
-  const handleEdit =  async () => {
+  const handleEdit = async () => {
     setEditCar(true);
   };
 
@@ -89,7 +90,7 @@ export default function Card({
           </div>
         </WrapperCarIcon>
         {!editCar && (
-          <div>
+        <WrapperCar>
             <CardImage>
               <Image src={image} alt="foto do carro"></Image>
               <h1>{carName}</h1>
@@ -112,7 +113,7 @@ export default function Card({
                 <span>Descrição: {description}</span>
               </div>
             </CardDetails>
-          </div>
+          </WrapperCar>
         )}
         {editCar && (
           <Edit

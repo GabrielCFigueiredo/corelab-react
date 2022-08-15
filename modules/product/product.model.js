@@ -34,7 +34,7 @@ const productSchema = new mongoose.Schema({
   image: {
     type: String,
     required: true,
-    maxlength: 500
+    maxlength: 1000
   },
 });
 export default mongoose.models.Product || mongoose.model("Product", productSchema)

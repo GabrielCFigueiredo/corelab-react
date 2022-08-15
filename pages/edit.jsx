@@ -3,9 +3,9 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import Button from "../components/button/button";
-import { Input } from "../components/inputEdit/inputEdit.styles";
+import InputEdit from "../components/inputEdit/inputEdit";
 import { postSchema } from "../modules/product/product.schema";
-import { StyledForm } from "./form.styles";
+import { StyledFormEdit, WrapperButton, WrapperEdit } from "./edit.styles";
 
 export default function Edit({
   image,
@@ -16,19 +16,15 @@ export default function Edit({
   price,
   description,
   id,
-  onSave
+  onSave,
 }) {
-const router = useRouter()
-  const {
-    register,
-    handleSubmit,
-  } = useForm({
+  const router = useRouter();
+  const { register, handleSubmit } = useForm({
     resolver: joiResolver(postSchema),
     mode: "all",
   });
 
   const editSave = async (data) => {
-    
     try {
       const edit = await axios.patch(
         `${process.env.NEXT_PUBLIC_API_URL}/api/product/product`,
@@ -42,17 +38,16 @@ const router = useRouter()
           description: data.description,
           id: id,
         }
-        );
-        if (edit.status === 200) {
-            onSave()
-            
-        }
+      );
+      if (edit.status === 200) {
+        onSave();
+      }
     } catch (error) {}
   };
   return (
-    <div>
-      <StyledForm onSubmit={handleSubmit(editSave)}>
-      <Input
+    <WrapperEdit>
+      <StyledFormEdit onSubmit={handleSubmit(editSave)}>
+        <InputEdit
           placeholder="digite a url da imagem"
           label={"Foto do Carro"}
           type={"text"}
@@ -60,7 +55,7 @@ const router = useRouter()
           defaultValue={image}
           {...register("image")}
         />
-        <Input
+        <InputEdit
           placeholder="carName"
           label={"Nome do Carro"}
           type={"text"}
@@ -68,7 +63,7 @@ const router = useRouter()
           defaultValue={carName}
           {...register("carName")}
         />
-        <Input
+        <InputEdit
           placeholder="brand"
           label={"Marca"}
           type={"text"}
@@ -76,7 +71,7 @@ const router = useRouter()
           defaultValue={brand}
           {...register("brand")}
         />
-        <Input
+        <InputEdit
           placeholder="year"
           label={"Ano"}
           type={"number"}
@@ -84,7 +79,7 @@ const router = useRouter()
           defaultValue={year}
           {...register("year")}
         />
-        <Input
+        <InputEdit
           placeholder="color"
           label={"Cor do Carro"}
           type={"text"}
@@ -92,7 +87,7 @@ const router = useRouter()
           defaultValue={color}
           {...register("color")}
         />
-        <Input
+        <InputEdit
           placeholder="price"
           label={"Preço"}
           type={"number"}
@@ -100,7 +95,7 @@ const router = useRouter()
           defaultValue={price}
           {...register("price")}
         />
-        <Input
+        <InputEdit
           placeholder="description"
           label={"Descrição"}
           type={"text"}
@@ -108,8 +103,10 @@ const router = useRouter()
           defaultValue={description}
           {...register("description")}
         />
-        <Button type="submit">salvar alteração</Button>
-      </StyledForm>
-    </div>
+        <WrapperButton>
+          <Button type="submit">salvar alteração</Button>
+        </WrapperButton>
+      </StyledFormEdit>
+    </WrapperEdit>
   );
 }

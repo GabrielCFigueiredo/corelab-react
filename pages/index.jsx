@@ -52,7 +52,7 @@ export default function Home() {
       <div>
         <h1>Favoritos :</h1>
       </div>
-      <WrapperCardCar>
+      <div>
         {favorite &&
           favorite.map((favorite) => {
             return (
@@ -70,7 +70,7 @@ export default function Home() {
               </div>
             );
           })}
-      </WrapperCardCar>
+      </div>
       <WrapperCardCar>
         {data &&
           data.map((car) => {

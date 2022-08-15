@@ -4,7 +4,7 @@ import joiObjectid from "joi-objectid";
 Joi.objectId = joiObjectid(Joi);
 
 export const postSchema = Joi.object({
-  image: Joi.string().required().max(500),
+  image: Joi.string().required().max(1000),
   carName: Joi.string()
     .required()
     .max(50)
