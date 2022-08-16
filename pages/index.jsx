@@ -24,19 +24,33 @@ import useSWR from "swr";
 const fetcher = (url) => axios.get(url).then((res) => res.data.products);
 
 export default function Home() {
-  const { setData, favorite } = useContext(CartContext);
- 
+  const { setData, favorite, filter, setFilter, price } = useContext(CartContext);
+
   const { data } = useSWR(
     `${process.env.NEXT_PUBLIC_API_URL}/api/product/product`,
     fetcher
   );
+
+  const lista =
+    data &&
+    data.filter((car) => {
+      return Object.keys(car).some((key) =>
+        car[key]
+          .toString()
+          .toLowerCase()
+          .includes(filter.toString().toLowerCase())
+      );
+    });
   return (
     <Wrapper>
       <WrapperInput>
         <WrapperIconSearching>
           <Icon path={mdiMagnify} size={1} />
         </WrapperIconSearching>
-        <Input placeholder="Pesquisar" />
+        <Input
+          placeholder="Pesquisar"
+          onChange={(e) => setFilter(e.target.value)}
+        />
 
         <WrapperIconsettings>
           <Link href="/filter">
@@ -72,8 +86,8 @@ export default function Home() {
           })}
       </div>
       <WrapperCardCar>
-        {data &&
-          data.map((car) => {
+        {lista &&
+          lista.map((car) => {
             return (
               <CardCard key={car.id}>
                 <Card

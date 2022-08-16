@@ -5,6 +5,8 @@ export const CartContext = createContext({});
 export const CartProvider = ({ children }) => {
   const [data, setData] = useState();
   const [favorite, seFavorite] = useState([]);
+  const [filter, setFilter] = useState([]);
+  const [price, setPrice] = useState([]);
 
   const handleFavorite = (
     id,
@@ -29,7 +31,6 @@ export const CartProvider = ({ children }) => {
         qtd: 1,
       });
     } else {
-      
     }
     seFavorite(list);
   };
@@ -41,7 +42,11 @@ export const CartProvider = ({ children }) => {
         data,
         handleFavorite,
         favorite,
-        seFavorite
+        seFavorite,
+        filter,
+        setFilter,
+        price,
+        setPrice,
       }}
     >
       {children}
