@@ -15,6 +15,7 @@ import {
   WrapperIconSearching,
   WrapperIconsettings,
   WrapperInput,
+  WrapperLayout,
 } from "./index.styles";
 import Button from "../components/button/button";
 import Link from "next/link";
@@ -24,7 +25,8 @@ import useSWR from "swr";
 const fetcher = (url) => axios.get(url).then((res) => res.data.products);
 
 export default function Home() {
-  const { setData, favorite, filter, setFilter, price } = useContext(CartContext);
+  const { setData, favorite, filter, setFilter, price } =
+    useContext(CartContext);
 
   const { data } = useSWR(
     `${process.env.NEXT_PUBLIC_API_URL}/api/product/product`,
@@ -43,34 +45,36 @@ export default function Home() {
     });
   return (
     <Wrapper>
-      <WrapperInput>
-        <WrapperIconSearching>
-          <Icon path={mdiMagnify} size={1} />
-        </WrapperIconSearching>
-        <Input
-          placeholder="Pesquisar"
-          onChange={(e) => setFilter(e.target.value)}
-        />
+      <WrapperLayout>
+        <WrapperInput>
+          <WrapperIconSearching>
+            <Icon path={mdiMagnify} size={1} />
+          </WrapperIconSearching>
+          <Input
+            placeholder="Pesquisar"
+            onChange={(e) => setFilter(e.target.value)}
+          />
 
-        <WrapperIconsettings>
-          <Link href="/filter">
-            <Icon path={mdiTune} size={1} />
+          <WrapperIconsettings>
+            <Link href="/filter">
+              <Icon path={mdiTune} size={1} />
+            </Link>
+          </WrapperIconsettings>
+        </WrapperInput>
+        <WrapperButton>
+          <Link href={"/form"}>
+            <Button>Adicionar</Button>
           </Link>
-        </WrapperIconsettings>
-      </WrapperInput>
-      <WrapperButton>
-        <Link href={"/form"}>
-          <Button>Adicionar</Button>
-        </Link>
-      </WrapperButton>
+        </WrapperButton>
+      </WrapperLayout>
       <div>
         <h1>Favoritos :</h1>
       </div>
-      <div>
+      <WrapperCardCar>
         {favorite &&
           favorite.map((favorite) => {
             return (
-              <div key={favorite.id}>
+              <CardCard key={favorite.id}>
                 <FavoriteCard
                   image={favorite.image}
                   carName={favorite.carName}
@@ -81,10 +85,10 @@ export default function Home() {
                   description={favorite.description}
                   id={favorite._id}
                 />
-              </div>
+              </CardCard>
             );
           })}
-      </div>
+      </WrapperCardCar>
       <WrapperCardCar>
         {lista &&
           lista.map((car) => {
