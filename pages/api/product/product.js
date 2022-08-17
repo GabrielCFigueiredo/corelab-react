@@ -6,7 +6,6 @@ import {
 } from "../../../modules/product/product.schema";
 import createHandler from "../../../lib/middleWares/nextConnect";
 import {
-  add,
   deleteCar,
   editCar,
   getProduct,
@@ -39,7 +38,6 @@ product.delete(validation(deleteSchema), async (req, res) => {
 product.patch(validation(editSchema), async(req, res) => {
   try {
 const edit = await editCar(req.body)
-console.log("aqui",edit);
 if (edit)
   return res.status(200).send({ edit })
 
