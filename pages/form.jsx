@@ -4,7 +4,7 @@ import { joiResolver } from "@hookform/resolvers/joi";
 import { postSchema } from "../modules/product/product.schema";
 import axios from "axios";
 import { useRouter } from "next/router";
-import { StyledForm } from "./form.styles";
+import { StyledForm } from "../components/form.styles/form.style";
 import Button from "../components/button/button";
 
 export default function FormAdd() {

@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import Button from "../components/button/button";
 import InputEdit from "../components/inputEdit/inputEdit";
 import { postSchema } from "../modules/product/product.schema";
-import { StyledFormEdit, WrapperButton, WrapperEdit } from "./edit.styles";
+import { StyledFormEdit, WrapperButton, WrapperEdit } from "../components/edit.styles/edit.style";
 
 export default function Edit({
   image,

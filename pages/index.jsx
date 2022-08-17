@@ -11,12 +11,11 @@ import {
   Wrapper,
   WrapperButton,
   WrapperCardCar,
-  WrapperCardFavorite,
   WrapperIconSearching,
   WrapperIconsettings,
   WrapperInput,
   WrapperLayout,
-} from "./index.styles";
+} from "../components/index.styles/index.style";
 import Button from "../components/button/button";
 import Link from "next/link";
 import FavoriteCard from "../components/favorite/favorite";
