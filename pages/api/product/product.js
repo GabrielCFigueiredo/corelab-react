@@ -15,8 +15,10 @@ import {
 const product = createHandler();
 product.post(validation({ body: postSchema }), async (req, res) => {
   const created = await productUser(req.body);
+  const cookie = "user=hussein; samesite=lax; secure"
   if (created) {
     res.status(201).send({ created });
+    res.setHeader("set-cookie", [cookie])
     await created.req.body.save();
   }
 });

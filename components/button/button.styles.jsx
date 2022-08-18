@@ -8,10 +8,12 @@ export const StyledButton = styled.button `
     
 padding: 15px 70px;
 border-radius: 50px;
-border: 1px solid black;
+border: none;
 outline: none;
 background-color: red;
 color: white;
+font-weight: bold;
+font-size: 16px;
 cursor: pointer;
 :hover {
     background-color: #680707;

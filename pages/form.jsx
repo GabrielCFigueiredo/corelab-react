@@ -6,7 +6,6 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { StyledForm, WrapperButton } from "../components/form.styles/form.style";
 import Button from "../components/button/button";
-import InputEdit from "../components/inputEdit/inputEdit";
 
 export default function FormAdd() {
   const router = useRouter();
@@ -32,49 +31,49 @@ export default function FormAdd() {
   return (
     <div>
       <StyledForm onSubmit={handleSubmit(handleForm)}>
-        <InputEdit
+        <Input
           placeholder="digite a url da imagem"
           label={"Foto do Carro"}
           type={"text"}
           name={"image"}
           {...register("image")}
         />
-        <InputEdit
+        <Input
           placeholder="carName"
           label={"Nome do Carro"}
           type={"text"}
           name={"carName"}
           {...register("carName")}
         />
-        <InputEdit
+        <Input
           placeholder="brand"
           label={"Marca"}
           type={"text"}
           name={"brand"}
           {...register("brand")}
         />
-        <InputEdit
+        <Input
           placeholder="year"
           label={"Ano"}
           type={"number"}
           name={"year"}
           {...register("year")}
         />
-        <InputEdit
+        <Input
           placeholder="color"
           label={"Cor do Carro"}
           type={"text"}
           name={"color"}
           {...register("color")}
         />
-        <InputEdit
+        <Input
           placeholder="price"
           label={"Preço"}
           type={"number"}
           name={"price"}
           {...register("price")}
         />
-        <InputEdit
+        <Input
           placeholder="description"
           label={"Descrição"}
           type={"text"}
@@ -82,7 +81,7 @@ export default function FormAdd() {
           {...register("description")}
         />
         <WrapperButton>
-          <Button type="submit">salvar</Button>
+          <Button type="submit">Criar</Button>
         </WrapperButton>
       </StyledForm>
     </div>
