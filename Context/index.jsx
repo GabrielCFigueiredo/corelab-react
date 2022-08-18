@@ -21,6 +21,7 @@ export const CartProvider = ({ children }) => {
     const listCar = list.find((car) => car._id === id);
     if (!listCar) {
       list.push({
+        key: key.id,
         _id: id,
         image: image,
         carName: carName,

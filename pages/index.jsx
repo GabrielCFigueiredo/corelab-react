@@ -92,7 +92,7 @@ export default function Home() {
         {lista &&
           lista.map((car) => {
             return (
-              <CardCard key={car.id}>
+              <CardCard key={car._id}>
                 <Card
                   image={car.image}
                   carName={car.carName}
