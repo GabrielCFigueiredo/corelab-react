@@ -29,13 +29,6 @@ export const deleteCar = async (id) => {
   });
 };
 
-export const add = async (id) => {
-  return await Product.findById({
-    _id: id,
-    
-  });
-};
-
 export const editCar = async (body) => {
 return await Product.findOneAndUpdate({
   _id: body.id,
