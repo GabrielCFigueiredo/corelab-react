@@ -6,6 +6,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { StyledForm, WrapperButton } from "../components/form.styles/form.style";
 import Button from "../components/button/button";
+import InputEdit from "../components/inputEdit/inputEdit";
 
 export default function FormAdd() {
   const router = useRouter();
@@ -31,49 +32,49 @@ export default function FormAdd() {
   return (
     <div>
       <StyledForm onSubmit={handleSubmit(handleForm)}>
-        <Input
+        <InputEdit
           placeholder="digite a url da imagem"
           label={"Foto do Carro"}
           type={"text"}
           name={"image"}
           {...register("image")}
         />
-        <Input
+        <InputEdit
           placeholder="carName"
           label={"Nome do Carro"}
           type={"text"}
           name={"carName"}
           {...register("carName")}
         />
-        <Input
+        <InputEdit
           placeholder="brand"
           label={"Marca"}
           type={"text"}
           name={"brand"}
           {...register("brand")}
         />
-        <Input
+        <InputEdit
           placeholder="year"
           label={"Ano"}
           type={"number"}
           name={"year"}
           {...register("year")}
         />
-        <Input
+        <InputEdit
           placeholder="color"
           label={"Cor do Carro"}
           type={"text"}
           name={"color"}
           {...register("color")}
         />
-        <Input
+        <InputEdit
           placeholder="price"
           label={"Preço"}
           type={"number"}
           name={"price"}
           {...register("price")}
         />
-        <Input
+        <InputEdit
           placeholder="description"
           label={"Descrição"}
           type={"text"}

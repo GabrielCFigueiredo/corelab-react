@@ -66,10 +66,12 @@ export default function Home() {
           </Link>
         </WrapperButton>
       </WrapperLayout>
-      <div>
-        <h1>Favoritos :</h1>
-      </div>
+      {
+        favorite.length !== 0 ? 
       <WrapperCardCar>
+        <div>
+        <h1>Favoritos</h1>
+        </div>
         {favorite &&
           favorite.map((favorite) => {
             return (
@@ -87,7 +89,8 @@ export default function Home() {
               </CardCard>
             );
           })}
-      </WrapperCardCar>
+      </WrapperCardCar> : " "
+      }
       <WrapperCardCar>
         {lista &&
           lista.map((car) => {

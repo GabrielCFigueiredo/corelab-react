@@ -15,13 +15,17 @@ import {
 const product = createHandler();
 product.post(validation({ body: postSchema }), async (req, res) => {
   const created = await productUser(req.body);
-  res.status(201).send({ created });
-  await created.req.body.save();
+  if (created) {
+    res.status(201).send({ created });
+    await created.req.body.save();
+  }
 });
 product.get(async (req, res) => {
   try {
     const products = await getProduct();
-    res.status(200).send({ products });
+    if (products) {
+      res.status(200).send({ products });
+    }
   } catch (error) {
     return res.status(500).send(error.message);
   }
@@ -35,16 +39,12 @@ product.delete(validation(deleteSchema), async (req, res) => {
     return res.status(400).send(error.message);
   }
 });
-product.patch(validation(editSchema), async(req, res) => {
+product.patch(validation(editSchema), async (req, res) => {
   try {
-const edit = await editCar(req.body)
-if (edit)
-  return res.status(200).send({ edit })
+    const edit = await editCar(req.body);
+    if (edit) return res.status(200).send({ edit });
 
-  return res.status(400).send("car not found")
-
-  } catch (error) {
-
-  }
-})
+    return res.status(400).send("car not found");
+  } catch (error) {}
+});
 export default product;
