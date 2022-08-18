@@ -4,7 +4,7 @@ import { joiResolver } from "@hookform/resolvers/joi";
 import { postSchema } from "../modules/product/product.schema";
 import axios from "axios";
 import { useRouter } from "next/router";
-import { StyledForm } from "../components/form.styles/form.style";
+import { StyledForm, WrapperButton } from "../components/form.styles/form.style";
 import Button from "../components/button/button";
 
 export default function FormAdd() {
@@ -31,7 +31,7 @@ export default function FormAdd() {
   return (
     <div>
       <StyledForm onSubmit={handleSubmit(handleForm)}>
-      <Input
+        <Input
           placeholder="digite a url da imagem"
           label={"Foto do Carro"}
           type={"text"}
@@ -80,7 +80,9 @@ export default function FormAdd() {
           name={"description"}
           {...register("description")}
         />
-        <Button type="submit">salvar</Button>
+        <WrapperButton>
+          <Button type="submit">salvar</Button>
+        </WrapperButton>
       </StyledForm>
     </div>
   );
