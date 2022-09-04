@@ -4,27 +4,28 @@ import { joiResolver } from "@hookform/resolvers/joi";
 import { postSchema } from "../modules/product/product.schema";
 import axios from "axios";
 import { useRouter } from "next/router";
-import { StyledForm, WrapperButton } from "../components/form.styles/form.style";
+import {
+  StyledForm,
+  WrapperButton,
+} from "../components/form.styles/form.style";
 import Button from "../components/button/button";
 
 export default function FormAdd() {
   const router = useRouter();
 
-  const {
-    register,
-    handleSubmit,
-    formState: { error },
-  } = useForm({
+  const { register, handleSubmit } = useForm({
     resolver: joiResolver(postSchema),
   });
 
   const handleForm = async (data) => {
     try {
-      await axios.post(
+      const response = await axios.post(
         `${process.env.NEXT_PUBLIC_API_URL}/api/product/product`,
         data
       );
-      router.push("/");
+      if (response.status === 200) {
+        router.push("/");
+      }
     } catch (error) {}
   };
 
