@@ -1,4 +1,4 @@
-import validation from "../../../lib/middleWares/validation";
+import validate from "../../../lib/middleWares/validate";
 import {
   deleteSchema,
   editSchema,
@@ -13,7 +13,7 @@ import {
 } from "../../../modules/product/product.service";
 
 const product = createHandler();
-product.post(validation({ body: postSchema }), async (req, res) => {
+product.post(validate({ body: postSchema }), async (req, res) => {
   const create = await productUser(req.body);
   try {
     if (create) {
