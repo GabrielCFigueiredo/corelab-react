@@ -42,7 +42,7 @@ export const CardImage = styled.div`
   @media (min-width: 1024px) {
    width: 100%;
   }
-  width: 400px;
+  width: 500px;
 `;
 
 export const Image = styled.img`

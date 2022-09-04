@@ -30,60 +30,60 @@ export default function FormAdd() {
 
   return (
     <div>
-      <StyledForm onSubmit={handleSubmit(handleForm)}>
-        <Input
+      <form onSubmit={handleSubmit(handleForm)}>
+        <input
           placeholder="digite a url da imagem"
           label={"Foto do Carro"}
           type={"text"}
           name={"image"}
           {...register("image")}
         />
-        <Input
+        <input
           placeholder="carName"
           label={"Nome do Carro"}
           type={"text"}
           name={"carName"}
           {...register("carName")}
         />
-        <Input
+        <input
           placeholder="brand"
           label={"Marca"}
           type={"text"}
           name={"brand"}
           {...register("brand")}
         />
-        <Input
+        <input
           placeholder="year"
           label={"Ano"}
           type={"number"}
           name={"year"}
           {...register("year")}
         />
-        <Input
+        <input
           placeholder="color"
           label={"Cor do Carro"}
           type={"text"}
           name={"color"}
           {...register("color")}
         />
-        <Input
+        <input
           placeholder="price"
           label={"Preço"}
           type={"number"}
           name={"price"}
           {...register("price")}
         />
-        <Input
+        <input
           placeholder="description"
           label={"Descrição"}
           type={"text"}
           name={"description"}
           {...register("description")}
         />
-        <WrapperButton>
+        <div>
           <Button type="submit">Criar</Button>
-        </WrapperButton>
-      </StyledForm>
+        </div>
+      </form>
     </div>
   );
 }
