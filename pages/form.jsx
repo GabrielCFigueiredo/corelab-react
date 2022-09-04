@@ -23,7 +23,7 @@ export default function FormAdd() {
         `${process.env.NEXT_PUBLIC_API_URL}/api/product/product`,
         data
       );
-      if (response.status === 200) {
+      if (response.status === 201) {
         router.push("/");
       }
     } catch (error) {}
