@@ -14,8 +14,8 @@ import {
 
 const product = createHandler();
 product.post(validate({ body: postSchema }), async (req, res) => {
-  const create = await productUser(req.body);
   try {
+    const create = await productUser(req.body);
     if (create) {
       res.status(201).send({ create });
       await create.req.body.save();
@@ -34,7 +34,7 @@ product.get(async (req, res) => {
     return res.status(500).send(error.message);
   }
 });
-product.delete(validation(deleteSchema), async (req, res) => {
+product.delete(validate(deleteSchema), async (req, res) => {
   try {
     const car = await deleteCar(req.body.id);
     if (car) return res.status(200).send({ car });
@@ -43,7 +43,7 @@ product.delete(validation(deleteSchema), async (req, res) => {
     return res.status(400).send(error.message);
   }
 });
-product.patch(validation(editSchema), async (req, res) => {
+product.patch(validate(editSchema), async (req, res) => {
   try {
     const edit = await editCar(req.body);
     if (edit) return res.status(200).send({ edit });
