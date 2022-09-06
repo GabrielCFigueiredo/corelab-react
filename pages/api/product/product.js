@@ -16,11 +16,11 @@ const product = createHandler();
 product.post(validate({ body: postSchema }), async (req, res) => {
   try {
     const create = await productUser(req.body);
-    if (create) {
-      res.status(201).send({ create });
-      await create.req.body.save();
-    }
+    res.status(201).send({ create });
+
+    await create.req.body.save();
   } catch (error) {
+    console.log(error);
     return res.status(500).send(error.message);
   }
 });
