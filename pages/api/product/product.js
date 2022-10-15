@@ -20,8 +20,7 @@ product.post(validate({ body: postSchema }), async (req, res) => {
 
     await create.req.body.save();
   } catch (error) {
-    console.log(error);
-    
+    console.log(error); 
   }
 });
 product.get(async (req, res) => {

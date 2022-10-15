@@ -46,4 +46,7 @@ export const StyledInput = styled.input`
   outline: none;
   padding-left: 40px;
   cursor: pointer;
+  ::placeholder {
+    padding: 0 10px;
+  }
 `;

@@ -1,16 +1,16 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-display: flex;
-justify-content: center;
-flex-direction: column;
-align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   min-height: 100vh;
 `;
 
 export const WrapperLayout = styled.div`
-@media (max-width: 767px) {
+  @media (max-width: 767px) {
     width: 100%;
     background-position: center;
   }
@@ -28,7 +28,7 @@ export const WrapperLayout = styled.div`
   background-repeat: no-repeat;
   background-position: right;
   background-size: cover;
-  object-fit: fill
+  object-fit: fill;
 `;
 
 export const CardCard = styled.div`
@@ -69,10 +69,7 @@ export const WrapperIconSearching = styled.div`
     left: 36%;
     top: 20px;
   }
-  position: absolute;
-  left: 660px;
-  top: 20px;
-  height: 40px;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -122,7 +119,7 @@ export const WrapperCardCar = styled.div`
   }
 
   @media (min-width: 1024px) {
-    padding-left: 2%; 
+    padding-left: 2%;
     gap: 2%;
   }
   display: flex;
@@ -131,5 +128,4 @@ export const WrapperCardCar = styled.div`
   flex-wrap: wrap;
   width: 100%;
   padding-left: 10px;
-  
 `;

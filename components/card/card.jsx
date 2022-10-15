@@ -15,6 +15,8 @@ import {
 } from "./card.styles";
 import { CartContext } from "../../Context";
 import Edit from "../../pages/edit";
+import { useDispatch, useSelector } from "react-redux";
+import { addFavorite } from "../../redux/feature/cartSlice";
 
 export default function Card({
   image,
@@ -25,10 +27,46 @@ export default function Card({
   price,
   description,
   id,
+  car
 }) {
-  const { handleFavorite, favorite } = useContext(CartContext);
+  const [favorite, setFavorite] = useState([]);
   const [editCar, setEditCar] = useState(false);
   const { mutate } = useSWRConfig();
+  const dispatch = useDispatch()
+  
+
+  /*const handleFavorite = (
+    id,
+    image,
+    carName,
+    brand,
+    year,
+    price,
+    description
+  ) => {
+    const list = [...favorite];
+    const listCar = list.find((car) => car._id === id);
+    if (!listCar) {
+      list.push({
+        _id: id,
+        image: image,
+        carName: carName,
+        brand: brand,
+        year: year,
+        price: price,
+        description: description,
+        qtd: 1,
+      });
+    } else {
+    }
+    setFavorite(list);
+  };*/
+
+  const handleFavorite = (car) => {
+    
+    dispatch(addFavorite(car))
+  }
+  
   const handleDelete = async () => {
     try {
       const deleteCar = await axios.delete(
@@ -74,18 +112,7 @@ export default function Card({
               path={mdiHeart}
               size={1}
               color="red"
-              onClick={() =>
-                handleFavorite(
-                  image,
-                  carName,
-                  brand,
-                  year,
-                  color,
-                  price,
-                  description,
-                  id
-                )
-              }
+              onClick={() => handleFavorite(car)}
             />
           </div>
         </WrapperCarIcon>
