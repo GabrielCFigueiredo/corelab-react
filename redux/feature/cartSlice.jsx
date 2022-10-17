@@ -9,15 +9,14 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addFavorite: (state, action) => {
-      const item = state.cartItems.findIndex(
+      const item = state.cartItems.find(
         (item) => item.id === action.payload.id
       );
 
-      if (item >= 0) {
-        state.cartItems[item].cartQuantity += 1;
-      } else {
-        const product = { ...action.payload, cartQuantity: 1 };
+      if (!item) {
+        const product = { ...action.payload, qtd: 1 };
         state.cartItems.push(product);
+        
       }
     },
   },

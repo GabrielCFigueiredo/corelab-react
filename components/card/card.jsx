@@ -3,7 +3,7 @@ import { mdiSquareEditOutline } from "@mdi/js";
 import { mdiDeleteForever } from "@mdi/js";
 import { mdiHeart } from "@mdi/js";
 import axios from "axios";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useSWRConfig } from "swr";
 import {
   CardDetails,
@@ -13,7 +13,6 @@ import {
   WrapperCar,
   WrapperCarIcon,
 } from "./card.styles";
-import { CartContext } from "../../Context";
 import Edit from "../../pages/edit";
 import { useDispatch, useSelector } from "react-redux";
 import { addFavorite } from "../../redux/feature/cartSlice";
@@ -27,13 +26,12 @@ export default function Card({
   price,
   description,
   id,
-  car
+  car,
 }) {
   const [favorite, setFavorite] = useState([]);
   const [editCar, setEditCar] = useState(false);
   const { mutate } = useSWRConfig();
-  const dispatch = useDispatch()
-  
+  const dispatch = useDispatch();
 
   /*const handleFavorite = (
     id,
@@ -63,10 +61,9 @@ export default function Card({
   };*/
 
   const handleFavorite = (car) => {
-    
-    dispatch(addFavorite(car))
-  }
-  
+    dispatch(addFavorite(car));
+  };
+
   const handleDelete = async () => {
     try {
       const deleteCar = await axios.delete(
@@ -94,53 +91,16 @@ export default function Card({
 
   return (
     <div>
-      <Wrapper>
-        <WrapperCarIcon>
-          <div>
-            <Icon
-              path={mdiSquareEditOutline}
-              size={1}
-              color="blue"
-              onClick={handleEdit}
-            />
-          </div>
-          <div>
-            <Icon path={mdiDeleteForever} size={1} onClick={handleDelete} />
-          </div>
-          <div>
-            <Icon
-              path={mdiHeart}
-              size={1}
-              color="red"
-              onClick={() => handleFavorite(car)}
-            />
-          </div>
-        </WrapperCarIcon>
+      <div>
         {!editCar && (
-        <WrapperCar>
-            <CardImage>
-              <Image src={image} alt="foto do carro"></Image>
-              <h1>{carName}</h1>
-            </CardImage>
-
-            <CardDetails>
-              <div>
-                <span>Marca: {brand}</span>
+          <div className="container mx-auto">
+            <div className=" flex flex-wrap pt-20 ">
+              <div className="shadow-lg rounded-lg h-96 bg-white w-screen">
+                <img className="h-80 block w-full rounded-t-lg" src={image} alt="foto do carro" />
+                <h1>{carName}</h1>
               </div>
-              <div>
-                <span>Ano: {year}</span>
-              </div>
-              <div>
-                <span>Cor: {color}</span>
-              </div>
-              <div>
-                <span>preço: {price}</span>
-              </div>
-              <div>
-                <span>Descrição: {description}</span>
-              </div>
-            </CardDetails>
-          </WrapperCar>
+            </div>
+          </div>
         )}
         {editCar && (
           <Edit
@@ -155,7 +115,7 @@ export default function Card({
             onSave={editSave}
           />
         )}
-      </Wrapper>
+      </div>
     </div>
   );
 }

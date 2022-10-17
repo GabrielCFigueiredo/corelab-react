@@ -5,7 +5,14 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    fontFamily: {
+      sans: ["Inter", "sans-serif"]
+    },
+    extend: {
+      backgroundImage: {
+        background: "url('/fundo.png')"
+      },
+    },
   },
   plugins: [],
 };

@@ -28,9 +28,10 @@ export default function Home() {
   const { setData, favorite, filter, setFilter, price } =
     useContext(CartContext);
 
-  const { data } = useSWR(`${process.env.NEXT_PUBLIC_API_URL}/api/product/product`,
-  fetcher)
-
+  const { data } = useSWR(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/product/product`,
+    fetcher
+  );
 
   /*const lista =
     data &&
@@ -44,32 +45,14 @@ export default function Home() {
     });
     */
   return (
-    <Wrapper>
-      <NavBar />
-      <WrapperLayout>
-        <WrapperInput>
-          <WrapperIconSearching>
-            <Icon path={mdiMagnify} size={1} />
-          </WrapperIconSearching>
-          <Input
-            placeholder="Pesquisar"
-            onChange={(e) => setFilter(e.target.value)}
-          />
-
-          <WrapperIconsettings>
-            <Link href="/filter">
-              <Icon path={mdiTune} size={1} />
-            </Link>
-          </WrapperIconsettings>
-        </WrapperInput>
-        <WrapperButton>
-          <Link href={"/form"}>
-            <Button>Adicionar Veículo</Button>
-          </Link>
-        </WrapperButton>
-      </WrapperLayout>
-      {
-        /*favorite.length !== 0 ? 
+    <div className="bg-background bg-cover">
+      <div className=" h-16 py-2 bg-red-500">
+        <NavBar />
+      </div>
+        
+      
+      
+      {/*favorite.length !== 0 ? 
       <WrapperCardCar>
         <div>
         <h1>Favoritos</h1>
@@ -91,28 +74,26 @@ export default function Home() {
               </CardCard>
             );
           })}
-      </WrapperCardCar> : " " */
-      }
+      </WrapperCardCar> : " " */}
       <WrapperCardCar>
-        {
-          data?.map((car) => {
-            return (
-              <CardCard key={car._id}>
-                <Card
-                  image={car.image}
-                  carName={car.carName}
-                  brand={car.brand}
-                  year={car.year}
-                  color={car.color}
-                  price={car.price}
-                  description={car.description}
-                  id={car._id}
-                  car={car}
-                />
-              </CardCard>
-            );
-          })}
+        {data?.map((car) => {
+          return (
+            <CardCard key={car._id}>
+              <Card
+                image={car.image}
+                carName={car.carName}
+                brand={car.brand}
+                year={car.year}
+                color={car.color}
+                price={car.price}
+                description={car.description}
+                id={car._id}
+                car={car}
+              />
+            </CardCard>
+          );
+        })}
       </WrapperCardCar>
-    </Wrapper>
+    </div>
   );
 }
