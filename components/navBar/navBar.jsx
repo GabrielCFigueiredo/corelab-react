@@ -1,12 +1,14 @@
 import Link from "next/link";
+import { mdiMenu } from "@mdi/js";
+import Icon from "@mdi/react";
+import { useState } from "react";
 
 export default function NavBar() {
+  const [open, setOpen] = useState(false);
   return (
-    <nav className=" md:flex md:items-center md:justify-between shadow-lg md:pb-4 ">
-      <div className="flex items-center justify-center mb-4">
-        <h1 className="leading-none text-2xl text-grey-darkest font-extrabold font px-3">
-            GFMOTORS
-        </h1>
+    <nav className="flex items-center justify-between xl:max-w-7xl xl:mx-auto max-w-full px-[3%]  w-full">
+      <div>
+        <h1 className="">GFMOTORS</h1>
       </div>
       <div className="relative flex items-center justify-center w-full flex-wrap mb-3">
         <div className="flex border-2 rounded bg-white  md:mb-0 md:w-1/2">
@@ -27,15 +29,22 @@ export default function NavBar() {
           </button>
         </div>
       </div>
-      <div className=" font-extrabold flex items-center justify-center mb-4">
-        <Link href={"/form"}>
-          <button className="w-40">Adicionar Veículo</button>
-        </Link>
+      <div>
+        <Icon className="lg:hidden block h-6 w-6 cursor-pointer" path={mdiMenu} size={2} color={"white"} onClick={() => setOpen(!open)} />
       </div>
-      <div className="font-extrabold flex items-center justify-center mb-4">
-        <Link href={"/favorite"}>
-          <button>Favoritos</button>
-        </Link>
+      <div className={`${open ? "block" : "hidden"} lg:max-w-full lg:flex lg:items-center lg:w-auto`}>
+        <div className="text-base lg:flex lg:justify-between">
+        
+          <Link className="lg:px-5 py-2 block" href={"/form"}>
+            <button className="">Adicionar Veículo</button>
+          </Link>
+       
+        
+          <Link className="lg:px-5 py-2 block" href={"/favorite"}>
+            <button>Favoritos</button>
+          </Link>
+       
+        </div>
       </div>
     </nav>
   );
