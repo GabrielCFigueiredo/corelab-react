@@ -46,7 +46,7 @@ export default function Home() {
     */
   return (
     <div className="bg-background bg-cover">
-      <div className=" h-16 py-2 bg-red-500">
+      <div className=" h-16 ">
         <NavBar />
       </div>
         

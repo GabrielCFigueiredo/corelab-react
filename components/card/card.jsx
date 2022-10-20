@@ -94,8 +94,8 @@ export default function Card({
       <div>
         {!editCar && (
           <div className="container mx-auto">
-            <div className=" flex flex-wrap pt-20 ">
-              <div className="shadow-lg rounded-lg h-96 bg-white w-screen">
+            <div className=" flex flex-wrap pt-24 ">
+              <div className="shadow-lg rounded-lg h-full bg-white w-screen">
                 <img className="h-80 block w-full rounded-t-lg" src={image} alt="foto do carro" />
                 <h1>{carName}</h1>
               </div>
