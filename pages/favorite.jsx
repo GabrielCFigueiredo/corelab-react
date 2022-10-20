@@ -12,7 +12,7 @@ export default function Favorite() {
                 cartItems.map((car) => {
                     return (
                         <div key={car.id}>
-                            <img src={car.image} />
+                            <img className="h-80 block w-full rounded-t-lg" src={car.image} />
                         </div>
                     )
                 })

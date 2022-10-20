@@ -22,7 +22,7 @@ export default function NavBar() {
       <div
         className={`${
           open ? "block" : "hidden"
-        }  lg:flex  lg:w-full lg:items-center lg:justify-center w-full  `}
+        }  lg:flex  lg:max-w-full lg:items-center lg:justify-center w-full  `}
       >
         <div className="relative flex items-center justify-center w-full flex-wrap mb-3">
           <div className="flex border-2 rounded bg-white  md:mb-0 md:w-1/2">
@@ -44,7 +44,7 @@ export default function NavBar() {
           </div>
         </div>
 
-        <div className="flex lg:flex-row flex-col">
+        <div className="flex lg:flex-row flex-col relative">
           <Link className="block lg:inline-block " href={"/form"}>
             <button className="">Adicionar Veículo</button>
           </Link>
