@@ -127,7 +127,7 @@ export default function FormAdd() {
           />
         </div>
         <div className="flex items-center justify-between">
-      <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+      <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
         Criar Anuncio
       </button>
     </div>

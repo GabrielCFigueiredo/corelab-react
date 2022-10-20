@@ -7,12 +7,15 @@ export default function Favorite() {
 
     console.log(cartItems);
     return (
-        <div>
+        <div className="container mx-auto">
+
             {
                 cartItems.map((car) => {
                     return (
-                        <div key={car.id}>
+                        <div className="container mx-auto" key={car.id}>
+                            <div className="flex flex-wrap pt-24">
                             <img className="h-80 block w-full rounded-t-lg" src={car.image} />
+                            </div>
                         </div>
                     )
                 })
