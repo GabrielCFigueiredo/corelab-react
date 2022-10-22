@@ -5,6 +5,8 @@ import { mdiHeart } from "@mdi/js";
 import axios from "axios";
 import { useState } from "react";
 import { useSWRConfig } from "swr";
+import { mdiStar } from "@mdi/js";
+import { mdiStarOutline } from "@mdi/js";
 import {
   CardDetails,
   CardImage,
@@ -15,7 +17,7 @@ import {
 } from "./card.styles";
 import Edit from "../../pages/edit";
 import { useDispatch, useSelector } from "react-redux";
-import { addFavorite } from "../../redux/feature/cartSlice";
+import { addFavorite, removeFavorite } from "../../redux/feature/cartSlice";
 
 export default function Card({
   image,
@@ -32,6 +34,11 @@ export default function Card({
   const [editCar, setEditCar] = useState(false);
   const { mutate } = useSWRConfig();
   const dispatch = useDispatch();
+  const { cartItems } = useSelector((state) => state.favorites);
+  const [isFavorites, setIsFavorites] = useState(() => {
+    const isFavoriteMovie = cartItems.find((item) => item.id === car.id);
+    return !!isFavoriteMovie;
+  });
 
   /*const handleFavorite = (
     id,
@@ -60,8 +67,16 @@ export default function Card({
     setFavorite(list);
   };*/
 
-  const handleFavorite = (car) => {
+  const handleFavorite = () => {
+    //dispatch(addFavorite(car));
+    dispatch(removeFavorite(car.id));
+    setIsFavorites((prevState) => !prevState);
+  };
+
+  const hanDelete = () => {
+    //dispatch(addFavorite(car));
     dispatch(addFavorite(car));
+    setIsFavorites((prevState) => !prevState);
   };
 
   const handleDelete = async () => {
@@ -96,7 +111,20 @@ export default function Card({
           <div className="container mx-auto">
             <div className=" flex flex-wrap pt-24 ">
               <div className="shadow-lg rounded-lg h-full bg-white w-screen">
-                <img className="h-80 block w-full rounded-t-lg" src={image} alt="foto do carro" />
+                {isFavorites ? (
+                  <Icon
+                    path={mdiStar}
+                    size={1}
+                    onClick={handleFavorite}
+                  />
+                ) : (
+                  <Icon path={mdiStarOutline} size={1} onClick={hanDelete} />
+                )}
+                <img
+                  className="h-80 block w-full rounded-t-lg"
+                  src={image}
+                  alt="foto do carro"
+                />
                 <h1>{carName}</h1>
               </div>
             </div>

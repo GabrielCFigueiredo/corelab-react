@@ -6,8 +6,6 @@ import { useState } from "react";
 export default function NavBar({ setFilter }) {
   const [open, setOpen] = useState(false);
 
-
-  
   return (
     <nav className="bg-red-500 flex text-white items-center justify-between px-[3%] flex-wrap">
       <div>

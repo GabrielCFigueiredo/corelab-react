@@ -9,20 +9,31 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addFavorite: (state, action) => {
-      const item = state.cartItems.find(
+      const item = state.cartItems.findIndex(
         (item) => item.id === action.payload.id
       );
-
-      if (!item) {
+      if (item > 0) {
+        state.cartItems[item].qtd += 1
+      } else {
         const product = { ...action.payload, qtd: 1 };
         state.cartItems.push(product);
-        
       }
     },
+    removeFavorite: (state, action) => {
+      const updateFavMovieList = state.cartItems.filter(
+        (item) => item.id !== action.payload
+      );
+      state.cartItems = updateFavMovieList;
+     
+    },
+  
+  
   },
+  
 });
 
-export const { addFavorite } = cartSlice.actions;
+
+export const { addFavorite, removeFavorite } = cartSlice.actions;
 
 export const getAllFavorites = (state) => state.favorites.favorites;
 

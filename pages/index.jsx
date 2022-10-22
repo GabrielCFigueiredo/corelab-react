@@ -2,7 +2,7 @@ import Icon from "@mdi/react";
 import { mdiMagnify } from "@mdi/js";
 import { mdiTune } from "@mdi/js";
 import axios from "axios";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import Card from "../components/card/card";
 import Input from "../components/input/input";
 import { CartContext } from "../Context";
@@ -25,14 +25,15 @@ import NavBar from "../components/navBar/navBar";
 const fetcher = (url) => axios.get(url).then((res) => res.data.products);
 
 export default function Home() {
-  const [filter, setFilter] = useState([])
+  const { setData, favorite, filter, setFilter, price } =
+    useContext(CartContext);
 
   const { data } = useSWR(
     `${process.env.NEXT_PUBLIC_API_URL}/api/product/product`,
     fetcher
   );
 
-  const lista =
+  /*const lista =
     data &&
     data.filter((car) => {
       return Object.keys(car).some((key) =>
@@ -42,11 +43,11 @@ export default function Home() {
           .includes(filter.toString().toLowerCase())
       );
     });
-    
+    */
   return (
     <div className="bg-background bg-cover">
       <div className=" h-16 ">
-        <NavBar setFilter={setFilter} />
+        <NavBar />
       </div>
         
       
@@ -74,10 +75,10 @@ export default function Home() {
             );
           })}
       </WrapperCardCar> : " " */}
-      <div className="flex items-center justify-center w-full flex-wrap gap-10 px-4 py-5 ">
-        {lista?.map((car) => {
+      <WrapperCardCar>
+        {data?.map((car) => {
           return (
-            <div className="w-full h-auto sm:w-11/12 md:w-2/5 lg:w-1/4 px-2" key={car._id}>
+            <CardCard key={car._id}>
               <Card
                 image={car.image}
                 carName={car.carName}
@@ -89,10 +90,10 @@ export default function Home() {
                 id={car._id}
                 car={car}
               />
-            </div>
+            </CardCard>
           );
         })}
-      </div>
+      </WrapperCardCar>
     </div>
   );
 }
