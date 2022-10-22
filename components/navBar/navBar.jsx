@@ -3,8 +3,11 @@ import { mdiMenu } from "@mdi/js";
 import Icon from "@mdi/react";
 import { useState } from "react";
 
-export default function NavBar() {
+export default function NavBar({ setFilter }) {
   const [open, setOpen] = useState(false);
+
+
+  
   return (
     <nav className="bg-red-500 flex text-white items-center justify-between px-[3%] flex-wrap">
       <div>
@@ -22,13 +25,13 @@ export default function NavBar() {
       <div
         className={`${
           open ? "block" : "hidden"
-        }  lg:flex  lg:max-w-full lg:items-center lg:justify-center w-full  `}
+        } lg:flex  lg:max-w-full lg:items-center lg:justify-center w-full `}
       >
         <div className="relative flex items-center justify-center w-full flex-wrap mb-3">
           <div className="flex border-2 rounded bg-white  md:mb-0 md:w-1/2">
             <input
               type={"text"}
-              className="px-4 py-2 p-2 rounded-lg shadow-inner w-full"
+              className=" rounded-lg block p-4 w-full text-sm text-gray-900 fs- bg-gray-50 border border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
               onChange={(e) => setFilter(e.target.value)}
             />
             <button className="flex items-center justify-center px-4 border-l">
