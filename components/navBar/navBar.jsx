@@ -2,9 +2,11 @@ import Link from "next/link";
 import { mdiMenu } from "@mdi/js";
 import Icon from "@mdi/react";
 import { useState } from "react";
+import Home from "../../pages";
+import Favorite from "../../pages/favorite";
 
-export default function NavBar({ setFilter }) {
-  const [open, setOpen] = useState(false);
+export default function NavBar({ setFilter, children }) {
+  const [open, setOpen] = useState(false); 
 
   return (
     <nav className="bg-red-500 flex text-white items-center justify-between px-[3%] flex-wrap">
@@ -52,9 +54,9 @@ export default function NavBar({ setFilter }) {
 
           <Link
             className="block lg:inline-block hover:text-white"
-            href={"/favorite"}
+            href={"/"}
           >
-            <button>Favoritos</button>
+            <button>{ <Home /> ? "favoritos" : "home"}</button>
           </Link>
         </div>
       </div>

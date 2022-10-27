@@ -109,8 +109,8 @@ export default function Card({
       <div>
         {!editCar && (
           <div className="container mx-auto">
-            <div className=" flex flex-wrap pt-24 ">
-              <div className="shadow-lg rounded-lg h-full bg-white w-screen">
+            <div className=" flex flex-wrap pt-24 justify-center items-center ">
+              <div className="shadow-lg rounded-lg h-full bg-white w-11/12">
                 {isFavorites ? (
                   <Icon
                     path={mdiStar}
