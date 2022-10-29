@@ -2,19 +2,12 @@ import { joiResolver } from "@hookform/resolvers/joi";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
-import Button from "../components/button/button";
-import InputEdit from "../components/inputEdit/inputEdit";
+import { mdiCloseCircleOutline } from '@mdi/js';
 import { postSchema } from "../modules/product/product.schema";
-import { StyledFormEdit, WrapperButton, WrapperEdit } from "../components/edit.styles/edit.style";
+import Icon from "@mdi/react";
 
 export default function Edit({
-  image,
-  carName,
-  brand,
-  year,
-  color,
-  price,
-  description,
+  setEditCar,
   id,
   onSave,
 }) {
@@ -51,6 +44,9 @@ export default function Edit({
         onSubmit={handleSubmit(editSave)}
       >
         <div className="mb-4">
+        <div className="flex justify-end">
+          <Icon className="cursor-pointer" path={mdiCloseCircleOutline} size={1.5} onClick={() => setEditCar(false)} />
+        </div>
           <label className="block text-gray-700 text-sm font-bold mb-2">
             Nome do Produto
           </label>
@@ -143,7 +139,7 @@ export default function Edit({
         </div>
         <div className="flex items-center justify-between">
       <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-        Editar Anuncio
+        Criar Anuncio
       </button>
     </div>
       </form>

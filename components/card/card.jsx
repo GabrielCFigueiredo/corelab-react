@@ -1,7 +1,5 @@
 import Icon from "@mdi/react";
 import { mdiSquareEditOutline } from "@mdi/js";
-import { mdiDeleteForever } from "@mdi/js";
-import { mdiHeart } from "@mdi/js";
 import axios from "axios";
 import { useState } from "react";
 import { useSWRConfig } from "swr";
@@ -9,14 +7,6 @@ import { mdiStar } from "@mdi/js";
 import { mdiStarOutline } from "@mdi/js";
 import { mdiTrashCanOutline } from '@mdi/js';
 import { mdiPencil } from '@mdi/js';
-import {
-  CardDetails,
-  CardImage,
-  Image,
-  Wrapper,
-  WrapperCar,
-  WrapperCarIcon,
-} from "./card.styles";
 import Edit from "../../pages/edit";
 import { useDispatch, useSelector } from "react-redux";
 import { addFavorite, removeFavorite } from "../../redux/feature/cartSlice";
@@ -32,7 +22,6 @@ export default function Card({
   id,
   car,
 }) {
-  const [favorite, setFavorite] = useState([]);
   const [editCar, setEditCar] = useState(false);
   const { mutate } = useSWRConfig();
   const dispatch = useDispatch();
@@ -113,16 +102,16 @@ export default function Card({
           <div className="container mx-auto">
             <div className=" flex flex-wrap pt-3 justify-center items-center ">
               <div className="shadow-lg rounded-lg  bg-white w-11/12 ">
-              <div className="flex justify-end pr-20 " >
-                  <Icon className="absolute bg-white rounded " path={mdiPencil} size={1.5} color={"black"} onClick={handleEdit} />
+              <div className="flex justify-end pr-20 mr-3 " >
+                  <Icon className="absolute bg-white rounded cursor-pointer my-3 " path={mdiPencil} size={1.5} color={"black"} onClick={handleEdit} />
                 </div>
-                <div className="flex justify-end pr-10 " >
-                  <Icon className="absolute bg-white " path={mdiTrashCanOutline} size={1.5} color={"red"} onClick={handleDelete} />
+                <div className="flex justify-end pr-10 mr-3 " >
+                  <Icon className="absolute bg-white cursor-pointer rounded mt-3 " path={mdiTrashCanOutline} size={1.5} color={"red"} onClick={handleDelete} />
                 </div>
                 {isFavorites ? (
-                  <div className="flex justify-end ">
+                  <div className="flex justify-end mr-3 ">
                     <Icon
-                      className="absolute bg-black "
+                      className="absolute bg-black cursor-pointer rounded mt-3 "
                       path={mdiStar}
                       size={1.5}
                       onClick={handleFavorite}
@@ -130,9 +119,9 @@ export default function Card({
                     />
                   </div>
                 ) : (
-                  <div className="flex justify-end">
+                  <div className="flex justify-end mr-3">
                     <Icon
-                      className="absolute w-16 h-16 bg-black"
+                      className="absolute w-16 h-16 bg-black cursor-pointer rounded mt-3 "
                       path={mdiStarOutline}
                       size={1.5}
                       onClick={hanDelete}
@@ -175,6 +164,7 @@ export default function Card({
             description={description}
             id={id}
             onSave={editSave}
+            setEditCar={setEditCar}
           />
         )}
       </div>
