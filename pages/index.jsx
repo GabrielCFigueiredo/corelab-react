@@ -29,15 +29,15 @@ export default function Home() {
   
   return (
     <div className="bg-background bg-cover">
-      <div className=" h-16 ">
+      <div>
         <NavBar
         setFilter={setFilter}
         />
       </div>
-      <div className="flex justify-center items-center flex-wrap gap-10">
+      <div className="flex justify-center items-center flex-wrap gap-10 ">
         {lista?.map((car) => {
           return (
-            <div className="w-full h-[500px] lg:w-1/4 md:w-1/3 sm:w-11/12" key={car._id}>
+            <div className="w-full lg:w-1/4 md:w-1/3 sm:w-11/12" key={car._id}>
               <Card
                 image={car.image}
                 carName={car.carName}

@@ -17,12 +17,12 @@ export default function Favorite() {
       <div>
         <NavBar />
       </div>
-      <div className="flex justify-center items-center flex-wrap gap-10 h-screen">
+      <div className="flex justify-center items-center flex-wrap gap-10">
         {cartItems.length !== 0 ? (
           cartItems.map((car) => {
             return (
               <div
-                className="w-full h-[500px] lg:w-1/4 md:w-1/3 sm:w-11/12"
+                className="w-full lg:w-1/4 md:w-1/3 sm:w-11/12"
                 key={car._id}
               >
                 <Card

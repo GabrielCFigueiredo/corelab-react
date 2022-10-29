@@ -109,16 +109,26 @@ export default function Card({
       <div>
         {!editCar && (
           <div className="container mx-auto">
-            <div className=" flex flex-wrap pt-24 justify-center items-center ">
-              <div className="shadow-lg rounded-lg h-full bg-white w-11/12">
+            <div className=" flex flex-wrap pt-3 justify-center items-center ">
+              <div className="shadow-lg rounded-lg  bg-white w-11/12 ">
                 {isFavorites ? (
-                  <Icon
-                    path={mdiStar}
-                    size={1}
-                    onClick={handleFavorite}
-                  />
+                  <div className="flex justify-end">
+                    <Icon
+                      className="absolute w-16 h-16 bg-slate-50"
+                      path={mdiStar}
+                      size={1}
+                      onClick={handleFavorite}
+                    />
+                  </div>
                 ) : (
-                  <Icon path={mdiStarOutline} size={1} onClick={hanDelete} />
+                  <div className="flex justify-end">
+                    <Icon
+                      className="absolute w-16 h-16 bg-slate-50"
+                      path={mdiStarOutline}
+                      size={1}
+                      onClick={hanDelete}
+                    />
+                  </div>
                 )}
                 <img
                   className="h-80 block w-full rounded-t-lg"
