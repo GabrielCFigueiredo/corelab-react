@@ -1,5 +1,4 @@
 import Icon from "@mdi/react";
-import { mdiSquareEditOutline } from "@mdi/js";
 import axios from "axios";
 import { useState } from "react";
 import { useSWRConfig } from "swr";
@@ -7,9 +6,9 @@ import { mdiStar } from "@mdi/js";
 import { mdiStarOutline } from "@mdi/js";
 import { mdiTrashCanOutline } from '@mdi/js';
 import { mdiPencil } from '@mdi/js';
-import Edit from "../../pages/edit";
 import { useDispatch, useSelector } from "react-redux";
 import { addFavorite, removeFavorite } from "../../redux/feature/cartSlice";
+import FormEdit from "../formEdit.jsx/formEdit";
 
 export default function Card({
   image,
@@ -31,41 +30,12 @@ export default function Card({
     return !!isFavoriteMovie;
   });
 
-  /*const handleFavorite = (
-    id,
-    image,
-    carName,
-    brand,
-    year,
-    price,
-    description
-  ) => {
-    const list = [...favorite];
-    const listCar = list.find((car) => car._id === id);
-    if (!listCar) {
-      list.push({
-        _id: id,
-        image: image,
-        carName: carName,
-        brand: brand,
-        year: year,
-        price: price,
-        description: description,
-        qtd: 1,
-      });
-    } else {
-    }
-    setFavorite(list);
-  };*/
-
   const handleFavorite = (id) => {
-    //dispatch(addFavorite(car));
     dispatch(removeFavorite(id));
     setIsFavorites((prevState) => !prevState);
   };
 
   const hanDelete = () => {
-    //dispatch(addFavorite(car));
     dispatch(addFavorite(car));
     setIsFavorites((prevState) => !prevState);
   };
@@ -154,7 +124,7 @@ export default function Card({
           </div>
         )}
         {editCar && (
-          <Edit
+          <FormEdit
             image={image}
             carName={carName}
             brand={brand}

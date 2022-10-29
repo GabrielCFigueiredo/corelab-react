@@ -1,6 +1,4 @@
 import { SkeletonTheme } from "react-loading-skeleton";
-import { ThemeProvider } from "styled-components";
-import { CartProvider } from "../Context";
 import { GlobalStyles } from "../GlobalStyles/globalStyles";
 import { Provider } from "react-redux";
 import store from "../redux/store";

@@ -3,10 +3,10 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import { mdiCloseCircleOutline } from '@mdi/js';
-import { postSchema } from "../modules/product/product.schema";
+import { postSchema } from "../../modules/product/product.schema";
 import Icon from "@mdi/react";
 
-export default function Edit({
+export default function FormEdit({
   setEditCar,
   id,
   onSave,

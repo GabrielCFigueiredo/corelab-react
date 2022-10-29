@@ -45,22 +45,22 @@ export default function NavBar({ setFilter, children }) {
           </div>
         </div>
 
-        <div className="flex lg:flex-row flex-col relative">
+        <div className="flex lg:flex-row flex-col relative w-1/4 gap-3">
           <Link
             className="block lg:inline-block hover:text-white"
             href={"/"}
           >
-            <button>Home</button>
+            <button className="bg-black hover:bg-slate-500 text-white font-bold py-2 px-4 rounded">Home</button>
           </Link>
           <Link className="block lg:inline-block " href={"/form"}>
-            <button className="">Adicionar Veículo</button>
+            <button className="bg-black hover:bg-slate-500 text-white font-bold py-2 px-4 rounded ">Criar Produto</button>
           </Link>
 
           <Link
             className="block lg:inline-block hover:text-white"
             href={"/favorite"}
           >
-            <button>Favoritos</button>
+            <button className="bg-black hover:bg-slate-500 text-white font-bold py-2 px-4 rounded">Favoritos</button>
           </Link>
         </div>
       </div>

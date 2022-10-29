@@ -1,6 +1,6 @@
 
 import axios from "axios";
-import {  useState } from "react";
+import { useState } from "react";
 import Card from "../components/card/card";
 import useSWR from "swr";
 import NavBar from "../components/navBar/navBar";
