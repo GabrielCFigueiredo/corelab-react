@@ -7,6 +7,8 @@ import { useState } from "react";
 import { useSWRConfig } from "swr";
 import { mdiStar } from "@mdi/js";
 import { mdiStarOutline } from "@mdi/js";
+import { mdiTrashCanOutline } from '@mdi/js';
+import { mdiPencil } from '@mdi/js';
 import {
   CardDetails,
   CardImage,
@@ -67,9 +69,9 @@ export default function Card({
     setFavorite(list);
   };*/
 
-  const handleFavorite = () => {
+  const handleFavorite = (id) => {
     //dispatch(addFavorite(car));
-    dispatch(removeFavorite(car.id));
+    dispatch(removeFavorite(id));
     setIsFavorites((prevState) => !prevState);
   };
 
@@ -111,22 +113,30 @@ export default function Card({
           <div className="container mx-auto">
             <div className=" flex flex-wrap pt-3 justify-center items-center ">
               <div className="shadow-lg rounded-lg  bg-white w-11/12 ">
+              <div className="flex justify-end pr-20 " >
+                  <Icon className="absolute bg-white rounded " path={mdiPencil} size={1.5} color={"black"} onClick={handleEdit} />
+                </div>
+                <div className="flex justify-end pr-10 " >
+                  <Icon className="absolute bg-white " path={mdiTrashCanOutline} size={1.5} color={"red"} onClick={handleDelete} />
+                </div>
                 {isFavorites ? (
-                  <div className="flex justify-end">
+                  <div className="flex justify-end ">
                     <Icon
-                      className="absolute w-16 h-16 bg-slate-50"
+                      className="absolute bg-black "
                       path={mdiStar}
-                      size={1}
+                      size={1.5}
                       onClick={handleFavorite}
+                      color={"yellow"}
                     />
                   </div>
                 ) : (
                   <div className="flex justify-end">
                     <Icon
-                      className="absolute w-16 h-16 bg-slate-50"
+                      className="absolute w-16 h-16 bg-black"
                       path={mdiStarOutline}
-                      size={1}
+                      size={1.5}
                       onClick={hanDelete}
+                      color={"white"}
                     />
                   </div>
                 )}
@@ -135,7 +145,21 @@ export default function Card({
                   src={image}
                   alt="foto do carro"
                 />
-                <h1>{carName}</h1>
+                <div>
+                  <h1><span className="font-extrabold">Nome do Produto:</span> {carName}</h1>
+                </div>
+                <div>
+                  <span><span className="font-extrabold">Marca:</span> {brand}</span>
+                </div>
+                <div>
+                  <span><span className="font-extrabold">Ano de Fabricação:</span> {year}</span>
+                </div>
+                <div>
+                  <span><span className="font-extrabold">Valor do produto:</span> {price}</span>
+                </div>
+                <div>
+                  <span><span className="font-extrabold">Informação do produto:</span> {description}</span>
+                </div>
               </div>
             </div>
           </div>

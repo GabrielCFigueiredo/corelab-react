@@ -23,7 +23,7 @@ export default function NavBar({ setFilter, children }) {
       <div
         className={`${
           open ? "block" : "hidden"
-        } lg:flex  lg:max-w-full lg:items-center lg:justify-center w-full `}
+        } lg:flex  lg:max-w-full lg:items-center lg:justify-center w-full`}
       >
         <div className="relative flex items-center justify-center w-full flex-wrap mb-3">
           <div className="flex border-2 rounded bg-white  md:mb-0 md:w-1/2">
