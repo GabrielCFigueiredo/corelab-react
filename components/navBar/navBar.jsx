@@ -50,17 +50,17 @@ export default function NavBar({ setFilter, children }) {
             className="block lg:inline-block hover:text-white"
             href={"/"}
           >
-            <button className="bg-black hover:bg-slate-500 text-white font-bold py-2 px-4 rounded cursor-pointer">Home</button>
+            <button className="bg-black hover:bg-slate-300 text-white font-bold py-2 px-4 rounded cursor-pointer">Home</button>
           </Link>
           <Link className="block lg:inline-block " href={"/form"}>
-            <button className="bg-black hover:bg-slate-500 text-white font-bold py-2 px-4 rounded  cursor-pointer">Criar Produto</button>
+            <button className="bg-black hover:bg-slate-300 text-white font-bold py-2 px-4 rounded  cursor-pointer">Criar Produto</button>
           </Link>
 
           <Link
             className="block lg:inline-block hover:text-white"
             href={"/favorite"}
           >
-            <button className="bg-black hover:bg-slate-500 text-white font-bold py-2 px-4 rounded cursor-pointer">Favoritos</button>
+            <button className="bg-black hover:bg-slate-300 text-white font-bold py-2 px-4 rounded cursor-pointer">Favoritos</button>
           </Link>
         </div>
       </div>
