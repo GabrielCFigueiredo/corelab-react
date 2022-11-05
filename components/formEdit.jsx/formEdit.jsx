@@ -10,6 +10,14 @@ export default function FormEdit({
   setEditCar,
   id,
   onSave,
+  image,
+  carName,
+  brand,
+  year,
+  color,
+  price,
+  description
+
 }) {
   const router = useRouter();
   const { register, handleSubmit } = useForm({
@@ -57,6 +65,7 @@ export default function FormEdit({
             type={"text"}
             name={"carName"}
             {...register("carName")}
+            defaultValue={carName}
           />
         </div>
         <div className="mb-4">
@@ -70,6 +79,7 @@ export default function FormEdit({
             type={"text"}
             name={"brand"}
             {...register("brand")}
+            defaultValue={brand}
           />
         </div>
         <div className="mb-4">
@@ -83,6 +93,7 @@ export default function FormEdit({
             type={"number"}
             name={"year"}
             {...register("year")}
+            defaultValue={year}
           />
         </div>
         <div className="mb-4">
@@ -96,6 +107,7 @@ export default function FormEdit({
             type={"number"}
             name={"price"}
             {...register("price")}
+            defaultValue={price}
           />
         </div>
         <div className="mb-4">
@@ -109,6 +121,7 @@ export default function FormEdit({
             type={"text"}
             name={"color"}
             {...register("color")}
+            defaultValue={color}
           />
         </div>
         <div className="mb-4">
@@ -122,6 +135,7 @@ export default function FormEdit({
             type={"text"}
             name={"description"}
             {...register("description")}
+            defaultValue={description}
           />
         </div>
         <div className="mb-4">
@@ -135,11 +149,12 @@ export default function FormEdit({
             type={"text"}
             name={"image"}
             {...register("image")}
+            defaultValue={image}
           />
         </div>
         <div className="flex items-center justify-between">
       <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-        Criar Anuncio
+        Editar Anuncio
       </button>
     </div>
       </form>

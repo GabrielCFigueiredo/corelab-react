@@ -67,11 +67,11 @@ export default function Card({
 
   return (
     <div>
-      <div>
+      <div className=" h-[500px]">
         {!editCar && (
-          <div className="container mx-auto">
-            <div className=" flex flex-wrap pt-3 justify-center items-center ">
-              <div className="shadow-lg rounded-lg  bg-white w-11/12 ">
+          <div className="h-screen">
+            <div className=" flex flex-wrap pt-3 justify-center items-center h-1/3 ">
+              <div className="shadow-lg rounded-lg  bg-white w-11/12 h-[480px]  ">
               <div className="flex justify-end pr-20 mr-3 " >
                   <Icon className="absolute bg-white rounded cursor-pointer my-3 " path={mdiPencil} size={1.5} color={"black"} onClick={handleEdit} />
                 </div>
@@ -104,19 +104,19 @@ export default function Card({
                   src={image}
                   alt="foto do carro"
                 />
-                <div>
+                <div className="pl-2">
                   <h1><span className="font-extrabold">Nome do Produto:</span> {carName}</h1>
                 </div>
-                <div>
+                <div className="pl-2">
                   <span><span className="font-extrabold">Marca:</span> {brand}</span>
                 </div>
-                <div>
+                <div className="pl-2">
                   <span><span className="font-extrabold">Ano de Fabricação:</span> {year}</span>
                 </div>
-                <div>
+                <div className="pl-2">
                   <span><span className="font-extrabold">Valor do produto:</span> {price}</span>
                 </div>
-                <div>
+                <div className="pl-2">
                   <span><span className="font-extrabold">Informação do produto:</span> {description}</span>
                 </div>
               </div>

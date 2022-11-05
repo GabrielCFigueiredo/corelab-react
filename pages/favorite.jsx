@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import Card from "../components/card/card";
+import Empty from "../components/empty/empty";
 import NavBar from "../components/navBar/navBar";
 import { getAllFavorites, removeFavorite } from "../redux/feature/cartSlice";
 
@@ -40,7 +41,7 @@ export default function Favorite() {
             );
           })
         ) : (
-          <div className="bg-red-600">nao existe</div>
+          <div><Empty /></div>
         )}
       </div>
     </div>

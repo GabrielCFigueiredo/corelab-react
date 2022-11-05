@@ -9,7 +9,7 @@ export default function NavBar({ setFilter, children }) {
   return (
     <nav className="bg-red-500 flex text-white items-center justify-between px-[3%] flex-wrap">
       <div>
-        <span>GFMOTORS</span>
+        <span className="font-bold font">GFStore</span>
       </div>
       <div>
         <Icon
@@ -23,7 +23,7 @@ export default function NavBar({ setFilter, children }) {
       <div
         className={`${
           open ? "block" : "hidden"
-        } lg:flex  lg:max-w-full lg:items-center lg:justify-center w-full`}
+        } lg:flex  lg:items-center lg:justify-center w-screen `}
       >
         <div className="relative flex items-center justify-center w-full flex-wrap mb-3">
           <div className="flex border-2 rounded bg-white  md:mb-0 md:w-1/2">
@@ -45,22 +45,22 @@ export default function NavBar({ setFilter, children }) {
           </div>
         </div>
 
-        <div className="flex lg:flex-row flex-col relative w-1/4 gap-3">
+        <div className="flex lg:flex-row flex-col w-5/6 relative gap-2 m-3 lg:w-4/12 ">
           <Link
             className="block lg:inline-block hover:text-white"
             href={"/"}
           >
-            <button className="bg-black hover:bg-slate-300 text-white font-bold py-2 px-4 rounded cursor-pointer">Home</button>
+            <button className="bg-gray-500 hover:bg-slate-300 hover:text-black text-white font-bold py-2 px-4 rounded cursor-pointer">Home</button>
           </Link>
           <Link className="block lg:inline-block " href={"/form"}>
-            <button className="bg-black hover:bg-slate-300 text-white font-bold py-2 px-4 rounded  cursor-pointer">Criar Produto</button>
+            <button className="bg-gray-500 hover:bg-slate-300 hover:text-black text-white font-bold py-2 px-4 rounded  cursor-pointer">Criar Produto</button>
           </Link>
 
           <Link
             className="block lg:inline-block hover:text-white"
             href={"/favorite"}
           >
-            <button className="bg-black hover:bg-slate-300 text-white font-bold py-2 px-4 rounded cursor-pointer">Favoritos</button>
+            <button className="bg-gray-500 hover:bg-slate-300 hover:text-black text-white font-bold py-2 px-4 rounded cursor-pointer">Favoritos</button>
           </Link>
         </div>
       </div>
