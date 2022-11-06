@@ -44,7 +44,7 @@ export default function NavBar({ setFilter, children }) {
             </button>
           </div>
         </div>
-
+        <div className="flex justify-center items-center px-16">
         <div className="flex lg:flex-row flex-col w-5/6 relative gap-2 m-3 lg:w-4/12 ">
           <Link
             className="block lg:inline-block hover:text-white"
@@ -62,6 +62,7 @@ export default function NavBar({ setFilter, children }) {
           >
             <button className="bg-gray-500 hover:bg-slate-300 hover:text-black text-white font-bold py-2 px-4 rounded cursor-pointer">Favoritos</button>
           </Link>
+        </div>
         </div>
       </div>
     </nav>
