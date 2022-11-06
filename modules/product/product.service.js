@@ -58,6 +58,7 @@ export const editCar = async (body) => {
       brand: body.brand,
       year: body.year,
       price: body.price,
+      color: body.color,
       description: body.description,
     },
     {

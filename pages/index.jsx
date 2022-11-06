@@ -28,7 +28,7 @@ export default function Home() {
     });
   
   return (
-    <div className="bg-background bg-cover h-screen">
+    <div className="bg-background bg-cover min-h-screen">
       <div>
         <NavBar
         setFilter={setFilter}

@@ -39,7 +39,7 @@ export default function FormEdit({
           description: data.description,
           id: id,
         }
-      );
+        );
       if (edit.status === 200) {
         onSave();
       }
@@ -48,7 +48,7 @@ export default function FormEdit({
   return (
     <div className="w-full">
       <form
-        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 absolute"
         onSubmit={handleSubmit(editSave)}
       >
         <div className="mb-4">

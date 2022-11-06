@@ -117,6 +117,9 @@ export default function Card({
                   <span><span className="font-extrabold">Valor do produto:</span> {price}</span>
                 </div>
                 <div className="pl-2">
+                  <span><span className="font-extrabold">Cor do Produto:</span> {color}</span>
+                </div>
+                <div className="pl-2">
                   <span><span className="font-extrabold">Informação do produto:</span> {description}</span>
                 </div>
               </div>
